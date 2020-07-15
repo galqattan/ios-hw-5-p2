@@ -29,7 +29,7 @@ class MovieMasterTVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) 
 
         // Configure the cell...
         cell.textLabel?.text = MoviesData[indexPath.row].movieName
@@ -45,6 +45,7 @@ class MovieMasterTVC: UITableViewController {
     }
     */
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         performSegue(withIdentifier: "next", sender: indexPath.row)
     }
     

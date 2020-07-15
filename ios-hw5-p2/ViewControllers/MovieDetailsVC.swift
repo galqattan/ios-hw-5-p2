@@ -11,7 +11,7 @@ import AVFoundation
 
 class MovieDetailsVC: UIViewController {
 
-    var movieData: moviesModel!
+    var movieData: MoviesModel!
     var backgroundMusic: AVAudioPlayer?
 
     
@@ -47,7 +47,7 @@ class MovieDetailsVC: UIViewController {
         @IBOutlet weak var musicImageView: UIImageView!
     
     func playBackgroundMusic(musicName: String){
-        let path = Bundle.main.path(forResource: musicName, ofType: nil)!
+        let path = Bundle.main.path(forResource: musicName, ofType: nil) ?? ""
         let url = URL(fileURLWithPath: path)
         
         do{
