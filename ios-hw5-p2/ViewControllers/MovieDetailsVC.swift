@@ -35,29 +35,25 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var ratedBG: UIView!
     @IBOutlet weak var yearBG: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        configureUI()
-        setMovieDetails()
-
-
-        // Do any additional setup after loading the view.
-    }
-       
-        
-    
     @IBAction func music(_ sender: UIButton) {
     
     let path = Bundle.main.path(forResource: "toystory.mp3", ofType:nil)!
     let url = URL(fileURLWithPath: path)
-
     do {
         backgroundMusic = try AVAudioPlayer(contentsOf: url)
         backgroundMusic?.play()
     } catch {
-        // couldn't load file :(
     }
+        
         }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureUI()
+        setMovieDetails()
+        
+        // Do any additional setup after loading the view.
+    }
+       
         
     
         
