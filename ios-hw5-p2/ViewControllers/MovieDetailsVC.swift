@@ -39,25 +39,27 @@ class MovieDetailsVC: UIViewController {
         super.viewDidLoad()
         configureUI()
         setMovieDetails()
-        playBackgroundMusic(musicName: "toystory.mp3")
+
 
         // Do any additional setup after loading the view.
     }
        
-        @IBOutlet weak var musicImageView: UIImageView!
-    
-    func playBackgroundMusic(musicName: String){
-        let path = Bundle.main.path(forResource: musicName, ofType: nil) ?? ""
-        let url = URL(fileURLWithPath: path)
         
-        do{
-            backgroundMusic = try AVAudioPlayer(contentsOf: url)
-            backgroundMusic?.play()
-        } catch {
-            
+    
+    @IBAction func music(_ sender: UIButton) {
+    
+    let path = Bundle.main.path(forResource: "toystory.mp3", ofType:nil)!
+    let url = URL(fileURLWithPath: path)
+
+    do {
+        backgroundMusic = try AVAudioPlayer(contentsOf: url)
+        backgroundMusic?.play()
+    } catch {
+        // couldn't load file :(
+    }
         }
         
-    }
+    
         
     func setMovieDetails(){
         movieName.title = movieData.movieName
